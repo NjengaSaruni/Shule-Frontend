@@ -24,6 +24,15 @@
             <label for="password_again">Password Again:</label>
             <input type="password" id="password_again" formControlName="password_again" required>
         </div>
-        <button class="submit-button" type="submit">Sign Up</button>
+        <div *ngIf="signupForm.errors?.['passwordMismatch']" class="error-message">
+            Passwords do not match
+        </div>
+        <div *ngIf="signupForm.get('email')?.errors?.['email'] && signupForm.get('email')?.touched" class="error-message">
+            Please enter a valid email address
+        </div>
+        <div *ngIf="signupForm.get('password')?.errors?.['minlength'] && signupForm.get('password')?.touched" class="error-message">
+            Password must be at least 6 characters long
+        </div>
+        <button class="submit-button" type="submit" [disabled]="!signupForm.valid">Sign Up</button>
     </form>
 </div>
