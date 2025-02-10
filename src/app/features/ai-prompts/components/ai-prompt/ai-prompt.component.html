@@ -3,8 +3,8 @@
         <h2>AI Prompt</h2>
     </div>
     <div class="prompt-content">
-        <form class="prompt-form">
-            <textarea 
+        <form class="prompt-form" [formGroup]="aiPromptForm" (ngSubmit)="onSubmit()">
+            <textarea formControlName="prompt"
                 class="prompt-input" 
                 placeholder="Enter your prompt here..."
                 rows="4">
@@ -15,6 +15,8 @@
         </form>
     </div>
     <div class="prompt-results">
-        <!-- Results will be displayed here -->
+        <div class="results-content">
+            <pre *ngIf="response$">{{ response$ | json }}</pre>
+        </div>
     </div>
 </div>
