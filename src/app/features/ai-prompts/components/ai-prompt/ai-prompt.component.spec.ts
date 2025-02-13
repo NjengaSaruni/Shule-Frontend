@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AiPromptComponent } from './ai-prompt.component';
+import { AiPromptsService } from '../../services/ai-prompts.service';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('AiPromptComponent', () => {
   let component: AiPromptComponent;
@@ -8,7 +11,13 @@ describe('AiPromptComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AiPromptComponent]
+      imports: [
+        AiPromptComponent,
+      ],
+      providers: [
+        AiPromptsService,
+        provideHttpClient(),
+        provideHttpClientTesting()]
     })
     .compileComponents();
 
