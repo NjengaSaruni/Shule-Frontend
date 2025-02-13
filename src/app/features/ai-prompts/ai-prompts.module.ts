@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { AiPromptsRoutingModule } from './ai-prompts-routing.module';
 import { AiPromptsService } from './services/ai-prompts.service';
 import { provideHttpClient, withInterceptorsFromDi, withFetch } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    AiPromptsRoutingModule
+    AiPromptsRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [
     AiPromptsService,
